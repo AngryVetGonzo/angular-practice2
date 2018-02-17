@@ -1,3 +1,36 @@
-<p>
-  user works!
-</p>
+<h1>Add User</h1>
+<form (ngSubmit)="addUser(f)" #f="ngForm">
+  <div>
+    <label for="firstName">First Name: </label>
+    <input
+      type="text"
+      id="firstName"
+      ngModel
+      name="firstName"
+      required>
+    <br>
+    <label for="lastName">Last Name: </label>
+    <input
+      type="text"
+      id="lastName"
+      ngModel
+      name="lastName"
+      required
+      #lastName="ngModel">
+      <span *ngIf="!lastName.valid && lastName.touched">Please enter your last name!</span>
+    <br>
+    <label for="age">Age: </label>
+    <input
+      type="number"
+      id="age"
+      ngModel
+      name="age"
+      required>
+    <br>
+    <button
+      type="submit"
+      [disabled]="!f.valid">Submit</button>
+  </div>
+</form>
+
+
