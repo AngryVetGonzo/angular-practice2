@@ -1,5 +1,5 @@
 <h1>Add User</h1>
-<form (ngSubmit)="addUser(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
   <div>
     <label for="firstName">First Name: </label>
     <input
@@ -17,7 +17,10 @@
       name="lastName"
       required
       #lastName="ngModel">
-      <span *ngIf="!lastName.valid && lastName.touched">Please enter your last name!</span>
+    <span
+      *ngIf="!lastName.valid && lastName.touched">
+      Please enter your last name!
+    </span>
     <br>
     <label for="age">Age: </label>
     <input
@@ -25,12 +28,17 @@
       id="age"
       ngModel
       name="age"
-      required>
+      required
+      pattern="^[1-9]+[0-9]*$">
     <br>
     <button
       type="submit"
-      [disabled]="!f.valid">Submit</button>
+      [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}
+    </button>
+    <button type="button" (click)="onClear()">Clear</button>
+    <button
+      type="button" (click)="onDelete()"
+      *ngIf="editMode">Delete</button>
   </div>
 </form>
-
 

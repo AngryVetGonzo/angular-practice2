@@ -28,7 +28,15 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onDelete() {
-    this.userService.destroyUser(this.user);
+  onEditItem(index: number) {
+    this.userService.editingUser.next(index);
   }
 }
+
+
+
+
+
+
+
+
