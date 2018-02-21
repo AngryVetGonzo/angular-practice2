@@ -1,27 +1,13 @@
-<h1>User List</h1>
-
-<!--<table style="width:100%">-->
-  <!--<tr>-->
-    <!--<th>First Name</th>-->
-    <!--<th>Last Name</th>-->
-    <!--<th>Age</th>-->
-    <!--<th>Delete</th>-->
-  <!--</tr>-->
-  <!--<tr *ngFor="let user of users">-->
-    <!--(click)="onEditItem()"-->
-    <!--<th style="font-weight: normal">{{ user.firstName }}</th>-->
-    <!--<th style="font-weight: normal">{{ user.lastName }}</th>-->
-    <!--<th style="font-weight: normal">{{ user.age }}</th>-->
-    <!--<th><button type="button" (click)="onDelete()">Delete</button></th>-->
-  <!--</tr>-->
-<!--</table>-->
- <ul>
-   <a
-   *ngFor="let user of users; let i = index"
-   (click)="onEditItem(i)">
-     <p>{{  user.firstName }}</p>
-     <p>{{ user.lastName }}</p>
-     <p>{{ user.age }}</p>
-   </a>
- </ul>
-
+<div class="container">
+<h2 class="text-center">User List</h2>
+<a *ngFor="let user of users; let i = index"
+   (click)="onEditItem(i)"
+  style="cursor: pointer;"
+  class="list-group-item clearfix">
+  <div class="text-center">
+    <h4>{{ user.firstName }}</h4>
+    <p>{{ user.lastName }}</p>
+    <p>{{ user.age }}</p>
+  </div>
+</a>
+</div>

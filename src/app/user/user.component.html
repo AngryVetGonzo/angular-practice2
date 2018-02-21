@@ -1,6 +1,6 @@
-<h1>Add User</h1>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <div>
+<div class="container">
+  <h2>Add User Here</h2>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <label for="firstName">First Name: </label>
     <input
       type="text"
@@ -19,8 +19,8 @@
       #lastName="ngModel">
     <span
       *ngIf="!lastName.valid && lastName.touched">
-      Please enter your last name!
-    </span>
+        Please enter your last name!
+      </span>
     <br>
     <label for="age">Age: </label>
     <input
@@ -39,6 +39,5 @@
     <button
       type="button" (click)="onDelete()"
       *ngIf="editMode">Delete</button>
-  </div>
-</form>
-
+  </form>
+</div>

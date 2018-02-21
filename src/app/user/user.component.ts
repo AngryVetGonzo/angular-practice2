@@ -11,6 +11,7 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, OnDestroy {
+  user: User;
   @ViewChild('f') userForm: NgForm;
   subscription: Subscription;
   editMode = false;
@@ -60,4 +61,5 @@ export class UserComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
 }
